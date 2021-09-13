@@ -113,3 +113,7 @@ button {
 	top: 109px;
 	right: 686px;
 }
+
+.credit {
+	display: inline;
+}
