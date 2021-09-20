@@ -42,6 +42,8 @@ function showTemperature(response) {
 	let currentTemp = document.querySelector("#weather-today");
 	let weatherDescription = document.querySelector("#weather-description");
 	let weatherIcon = document.querySelector("#weather-icon");
+	let wind = document.querySelector("#wind-speed");
+	let humidity = document.querySelector("#humidity");
 	currentTemp.innerHTML = `${cityTemp}°C`;
 	weatherDescription.innerHTML = response.data.weather[0].description;
 	weatherIcon.setAttribute(
@@ -49,6 +51,8 @@ function showTemperature(response) {
 		`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
 	);
 	weatherIcon.setAttribute("alt", response.data.weather[0].description);
+	wind.innerHTML = Math.round(response.data.wind.speed);
+	humidity.innerHTML = `${response.data.main.humidity}%`;
 }
 
 function clickSearch(event) {
