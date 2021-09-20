@@ -25,17 +25,24 @@
 			<h1>Weather App</h1>
 			<h2 id="current-date"></h2>
 			
-			<span id="unit-toggle">
-				<button class= "unit-button button-select" id="celcius-button">°C</button>
-				<button class= "unit-button" id="farenheit-button">°F</button>
-			</span>
+		
 			<form class="search" id="city-search">
-				<input type="text" placeholder="Search for location" id="city-input" />
-
-				<input type="submit" class="submit-button button"  placeholder="Search" />
+				<div class="row">
+					<div class = "col-2"></div>
+					<div class = "col-3 search-bar">
+						<input type="text" placeholder="Search for location" id="city-input" />
+					</div>
+				<div class = "col-1 search-bar">
+					<input type="submit" class="submit-button button"  placeholder="Search" />
+				</div>
+				<div class = "col-3">
+					<button class="button" id="current-city">Current City</button> 
+				</div>
 			</form>
-			<button class="button" id="current-city">Current City</button> 
+			
+
 			<h3 class="location"></h3>
+		
 
 			<div class="weather-today">
 				<div class="row justify-content-md-center">
@@ -51,9 +58,9 @@
 						</p>
 					</div>
 					<div class="col-2 text-center">
-						<p>Wind: 10km/h</p>
+						<p>Wind: <span id="wind-speed"></span></p>
 
-						<p>Humidity: 50%</p>
+						<p>Humidity: <span id="humidity"></span></p>
 					</div>
 				</div>
 			</div>
@@ -99,7 +106,14 @@
 					</div>
 				</div>
 			</div>
-<div><a href="https://github.com/boschmac/SheCodes-WeatherApp" target="_blank">Open source code</a><p class="credit"> by Corinne Long</p></div>
+<span>
+	<a href="https://github.com/boschmac/SheCodes-WeatherApp" target="_blank">Open source code</a>
+	<p class="credit"> by Corinne Long</p>
+	<button class= "unit-button button-select float-right" id="celcius-button">°C</button>
+	<button class= "unit-button float-right" id="farenheit-button">°F</button>
+</span>
+
+		
 		<script src="src/script.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 

@@ -31,6 +31,10 @@ function formatDate(date) {
 	let currentMinutes = date.getMinutes();
 
 	let today = document.querySelector("#current-date");
+
+	if (currentMinutes < 10) {
+		currentMinutes = `0${currentMinutes}`;
+	}
 	today.innerHTML = ` ${currentDay}, ${currentMonth} ${currentDate} ${currentHour}:${currentMinutes} `;
 }
 function showTemperature(response) {

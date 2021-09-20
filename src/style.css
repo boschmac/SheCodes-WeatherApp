@@ -1,5 +1,5 @@
 #page-wrap {
-	width: 1000px;
+	width: 900px;
 	margin: 0 auto;
 	background-color: aliceblue;
 	border: 0.5rem outset aliceblue;
@@ -27,17 +27,6 @@ h3 {
 
 p.current-date {
 	text-align: center;
-}
-
-input {
-	margin: 0 0 0 347px;
-	display: block;
-}
-
-.submit-button {
-	position: relative;
-	top: -30px;
-	left: 204px;
 }
 
 .weather-today {
@@ -73,12 +62,6 @@ input {
 	left: 30px;
 }
 
-#unit-toggle {
-	position: fixed;
-	top: 15px;
-	right: 480px;
-}
-
 button {
 	background-color: #b5cfd8;
 	border-color: #b5cfd8;
@@ -108,12 +91,10 @@ button {
 	border-radius: 20px;
 }
 
-#current-city {
-	position: fixed;
-	top: 109px;
-	right: 686px;
-}
-
 .credit {
 	display: inline;
+}
+
+.search-bar {
+	margin-right: 15px;
 }
