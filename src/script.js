@@ -41,8 +41,14 @@ function showTemperature(response) {
 	let cityTemp = Math.round(response.data.main.temp);
 	let currentTemp = document.querySelector("#weather-today");
 	let weatherDescription = document.querySelector("#weather-description");
+	let weatherIcon = document.querySelector("#weather-icon");
 	currentTemp.innerHTML = `${cityTemp}°C`;
 	weatherDescription.innerHTML = response.data.weather[0].description;
+	weatherIcon.setAttribute(
+		"src",
+		`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+	);
+	weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function clickSearch(event) {
