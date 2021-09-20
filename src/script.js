@@ -40,7 +40,9 @@ function formatDate(date) {
 function showTemperature(response) {
 	let cityTemp = Math.round(response.data.main.temp);
 	let currentTemp = document.querySelector("#weather-today");
+	let weatherDescription = document.querySelector("#weather-description");
 	currentTemp.innerHTML = `${cityTemp}°C`;
+	weatherDescription.innerHTML = response.data.weather[0].description;
 }
 
 function clickSearch(event) {

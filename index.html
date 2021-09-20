@@ -27,16 +27,17 @@
 			
 		
 			<form class="search" id="city-search">
-				<div class="row">
+				<div class="row justify-content-md-center">
 					<div class = "col-2"></div>
 					<div class = "col-3 search-bar">
 						<input type="text" placeholder="Search for location" id="city-input" />
 					</div>
-				<div class = "col-1 search-bar">
-					<input type="submit" class="submit-button button"  placeholder="Search" />
-				</div>
-				<div class = "col-3">
-					<button class="button" id="current-city">Current City</button> 
+					<div class = "col-1 search-bar">
+						<input type="submit" class="submit-button button"  placeholder="Search" />
+					</div>
+					<div class = "col-3">
+						<button class="button" id="current-city">Current City</button> 
+					</div>
 				</div>
 			</form>
 			
@@ -46,8 +47,7 @@
 
 			<div class="weather-today">
 				<div class="row justify-content-md-center">
-					<div class="col-1 text-center">
-						<h5 class="card-title">Today</h5>
+					<div class = "col-2 text-center">
 						<p class="weather-emoji">☀️</p>
 					</div>
 					<div class="col-1 text-center">
@@ -56,6 +56,11 @@
 								
 							</span>
 						</p>
+						<p id="weather-description"></p>
+						
+	
+							
+						
 					</div>
 					<div class="col-2 text-center">
 						<p>Wind: <span id="wind-speed"></span></p>
@@ -109,8 +114,8 @@
 <span>
 	<a href="https://github.com/boschmac/SheCodes-WeatherApp" target="_blank">Open source code</a>
 	<p class="credit"> by Corinne Long</p>
-	<button class= "unit-button button-select float-right" id="celcius-button">°C</button>
-	<button class= "unit-button float-right" id="farenheit-button">°F</button>
+	<button class= "unit-button button-select" id="celcius-button">°C</button>
+	<button class= "unit-button" id="farenheit-button">°F</button>
 </span>
 
 		

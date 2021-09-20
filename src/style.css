@@ -43,7 +43,7 @@ p.current-date {
 }
 
 .weather-emoji {
-	font-size: 26px;
+	font-size: 40px;
 }
 
 .card-title {
@@ -97,4 +97,5 @@ button {
 
 .search-bar {
 	margin-right: 15px;
+	margin-bottom: 15px;
 }
