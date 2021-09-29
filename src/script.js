@@ -68,40 +68,24 @@ function clickSearch(event) {
 	axios.get(apiUrl).then(showTemperature);
 }
 
-function convertFarenheit(event) {
-	event.preventDefault();
-	let currentTemp = Math.round((celciusTemperature * 9) / 5 + 32);
-	let farenheit = document.querySelector("#farenheit-button");
-	let celcius = document.querySelector("#celcius-button");
-	let weatherToday = document.querySelector("#weather-today");
-	let weatherUnit = document.querySelector("#weather-unit");
-
-	weatherToday.innerHTML = currentTemp;
-	weatherUnit.innerHTML = "°F";
-	farenheit.classList.add("button-select");
-	celcius.classList.remove("button-select");
-}
-
-function convertCelcius(event) {
-	event.preventDefault();
-	let farenheit = document.querySelector("#farenheit-button");
-	let celcius = document.querySelector("#celcius-button");
-	let weatherToday = document.querySelector("#weather-today");
-	let weatherUnit = document.querySelector("#weather-unit");
-
-	weatherToday.innerHTML = celciusTemperature;
-	weatherUnit.innerHTML = `°C`;
-	farenheit.classList.remove("button-select");
-	celcius.classList.add("button-select");
-}
-
 function showCurrent(response) {
 	let currentCity = response.data.name;
 	let currentCityDisplay = document.querySelector(".location");
 	let currentLocTemp = document.querySelector("#weather-today");
 	let temperature = Math.round(response.data.main.temp);
+	let wind = document.querySelector("#wind-speed");
+	let humidity = document.querySelector("#humidity");
+	let weatherIcon = document.querySelector("#weather-icon");
+
 	currentLocTemp.innerHTML = `${temperature}°C`;
 	currentCityDisplay.innerHTML = `${currentCity}`;
+	weatherIcon.setAttribute(
+		"src",
+		`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+	);
+	weatherIcon.setAttribute("alt", response.data.weather[0].description);
+	wind.innerHTML = Math.round(response.data.wind.speed);
+	humidity.innerHTML = `${response.data.main.humidity}%`;
 }
 
 function showPosition(position) {
@@ -123,13 +107,5 @@ formatDate(currentTime);
 let citySearch = document.querySelector("#city-search");
 citySearch.addEventListener("submit", clickSearch);
 
-let farenheit = document.querySelector("#farenheit-button");
-farenheit.addEventListener("click", convertFarenheit);
-
-let celcius = document.querySelector("#celcius-button");
-celcius.addEventListener("click", convertCelcius);
-
 let currentCity = document.querySelector("#current-city");
 currentCity.addEventListener("click", getCurrent);
-
-let celciusTemperature = null;
