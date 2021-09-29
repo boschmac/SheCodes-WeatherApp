@@ -5,63 +5,62 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-		crossorigin="anonymous"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-		href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap"
-		rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap"
+			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="src/style.css" />
-		
+
 		<title>Weather App</title>
 	</head>
 	<body>
 		<div class="container" id="page-wrap">
 			<h1>Weather App</h1>
 			<h2 id="current-date"></h2>
-			
-		
+
 			<form class="search" id="city-search">
 				<div class="row justify-content-md-center">
-					<div class = "col-2"></div>
-					<div class = "col-3 search-bar">
-						<input type="text" placeholder="Search for location" id="city-input" />
+					<div class="col-2"></div>
+					<div class="col-3 search-bar">
+						<input
+							type="text"
+							placeholder="Search for location"
+							id="city-input"
+						/>
 					</div>
-					<div class = "col-1 search-bar">
-						<input type="submit" class="submit-button button"  placeholder="Search" />
+					<div class="col-1 search-bar">
+						<input
+							type="submit"
+							class="submit-button button"
+							placeholder="Search"
+						/>
 					</div>
-					<div class = "col-3">
-						<button class="button" id="current-city">Current City</button> 
+					<div class="col-3">
+						<button class="button" id="current-city">Current City</button>
 					</div>
 				</div>
 			</form>
-			
 
 			<h3 class="location"></h3>
-		
 
 			<div class="weather-today">
 				<div class="row justify-content-md-center">
-					<div class = "col-2 text-center">
-						<img src="" alt="Clear" id="weather-icon"/>
-						
+					<div class="col-2 text-center">
+						<img src="" alt="Clear" id="weather-icon" />
 					</div>
 					<div class="col-1 text-center">
-						<p class="todays-temp"><span id="weather-today">-</span>
-							<span class = "weather-unit" id="weather-unit">
-								
-							</span>
+						<p class="todays-temp">
+							<span id="weather-today">-</span>
+							<span class="weather-unit" id="weather-unit"> </span>
 						</p>
 						<p id="weather-description"></p>
-						
-	
-							
-						
 					</div>
 					<div class="col-2 text-center">
 						<p>Wind: <span id="wind-speed"></span></p>
@@ -70,57 +69,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="card-group weekly-weather">
-				<div class="card text-center border-info mb-3" style="max-width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Tuesday</h5>
-						<p class="card-text weather-emoji">⛅</p>
-						<p class="card-text">28°C</p>
-						<p class="card-text">19°C</p>
-					</div>
-				</div>
-				<div class="card text-center border-info mb-3" style="max-width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Wednesday</h5>
-						<p class="card-text weather-emoji">🌧</p>
-						<p class="card-text">25°C</p>
-						<p class="card-text">19°C</p>
-					</div>
-				</div>
-				<div class="card text-center border-info mb-3" style="max-width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Thursday</h5>
-						<p class="card-text weather-emoji">🌞</p>
-						<p class="card-text">28°C</p>
-						<p class="card-text">19°C</p>
-					</div>
-				</div>
-				<div class="card text-center border-info mb-3" style="max-width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Friday</h5>
-						<p class="card-text weather-emoji">⛈</p>
-						<p class="card-text">28°C</p>
-						<p class="card-text">19°C</p>
-					</div>
-				</div>
-				<div class="card text-center border-info mb-3" style="max-width: 18rem">
-					<div class="card-body">
-						<h5 class="card-title">Saturday</h5>
-						<p class="card-text weather-emoji">⛅</p>
-						<p class="card-text">28°C</p>
-						<p class="card-text">19°C</p>
-					</div>
-				</div>
-			</div>
-<span>
-	<a href="https://github.com/boschmac/SheCodes-WeatherApp" target="_blank">Open source code</a>
-	<p class="credit"> by Corinne Long</p>
-	
-</span>
 
-		
+			<div class="card-group" id="weekly-weather"></div>
+		</div>
+		<span>
+			<a href="https://github.com/boschmac/SheCodes-WeatherApp" target="_blank"
+				>Open source code</a
+			>
+			<p class="credit">by Corinne Long</p>
+		</span>
+
 		<script src="src/script.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 	</body>
 </html>

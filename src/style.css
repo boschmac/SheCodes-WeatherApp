@@ -23,6 +23,7 @@ h2 {
 
 h3 {
 	margin-bottom: 30px;
+	text-transform: capitalize;
 }
 
 p.current-date {
@@ -34,7 +35,7 @@ p.current-date {
 	display: block;
 }
 
-.weekly-weather {
+#weekly-weather {
 	padding: 20px;
 }
 

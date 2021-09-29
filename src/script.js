@@ -37,6 +37,30 @@ function formatDate(date) {
 	}
 	today.innerHTML = ` ${currentDay}, ${currentMonth} ${currentDate} ${currentHour}:${currentMinutes} `;
 }
+
+function displayForecast() {
+	let forecastElement = document.querySelector("#weekly-weather");
+	let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+	let forecastHTML = ``;
+
+	days.forEach(function (days) {
+		forecastHTML =
+			forecastHTML +
+			`<div class="card text-center border-info mb-3" style="max-width: 18rem">
+					<div class="card-body">
+						<h5 class="card-title">${days}</h5>
+						<p class="card-text weather-emoji">⛅</p>
+						<p class="card-text">28°C</p>
+						<p class="card-text">19°C</p>
+					</div>
+					</div>`;
+	});
+
+	forecastElement.innerHTML = forecastHTML;
+	console.log(forecastHTML);
+}
+
 function showTemperature(response) {
 	let currentTemp = document.querySelector("#weather-today");
 	let weatherDescription = document.querySelector("#weather-description");
@@ -109,3 +133,5 @@ citySearch.addEventListener("submit", clickSearch);
 
 let currentCity = document.querySelector("#current-city");
 currentCity.addEventListener("click", getCurrent);
+
+displayForecast();
