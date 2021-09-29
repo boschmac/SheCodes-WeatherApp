@@ -38,7 +38,7 @@ function formatDate(date) {
 	today.innerHTML = ` ${currentDay}, ${currentMonth} ${currentDate} ${currentHour}:${currentMinutes} `;
 }
 
-function displayForecast() {
+function showForecast() {
 	let forecastElement = document.querySelector("#weekly-weather");
 	let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
 
@@ -58,7 +58,12 @@ function displayForecast() {
 	});
 
 	forecastElement.innerHTML = forecastHTML;
-	console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+	let apiKey = "3b500a0fcd4ea4cff00793465f95a169";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+	axios.get(apiUrl).then(showForecast);
 }
 
 function showTemperature(response) {
@@ -79,6 +84,8 @@ function showTemperature(response) {
 	weatherIcon.setAttribute("alt", response.data.weather[0].description);
 	wind.innerHTML = Math.round(response.data.wind.speed);
 	humidity.innerHTML = `${response.data.main.humidity}%`;
+
+	getForecast(response.data.coord);
 }
 
 function clickSearch(event) {
@@ -133,5 +140,3 @@ citySearch.addEventListener("submit", clickSearch);
 
 let currentCity = document.querySelector("#current-city");
 currentCity.addEventListener("click", getCurrent);
-
-displayForecast();
