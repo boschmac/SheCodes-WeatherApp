@@ -118,6 +118,7 @@ function clickSearch(event) {
 function showCurrent(response) {
 	let currentCity = response.data.name;
 	let currentCityDisplay = document.querySelector(".location");
+	let weatherDescription = document.querySelector("#weather-description");
 	let currentLocTemp = document.querySelector("#weather-today");
 	let temperature = Math.round(response.data.main.temp);
 	let wind = document.querySelector("#wind-speed");
@@ -126,6 +127,7 @@ function showCurrent(response) {
 
 	currentLocTemp.innerHTML = `${temperature}°C`;
 	currentCityDisplay.innerHTML = `${currentCity}`;
+	weatherDescription.innerHTML = response.data.weather[0].description;
 	weatherIcon.setAttribute(
 		"src",
 		`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

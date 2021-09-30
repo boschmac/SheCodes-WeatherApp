@@ -1,21 +1,23 @@
 #page-wrap {
 	width: 900px;
 	margin: 0 auto;
-	background-color: aliceblue;
-	border: 0.5rem outset aliceblue;
+	background-color: #8e2735;
+	border: 0.5rem outset #8e2735;
 	border-radius: 12px;
 	font-family: "Comfortaa", cursive;
+	color: #deae4f;
 }
 
 h1,
+h2,
 h3 {
 	text-align: center;
+	color: #faf189;
 }
 
 h2 {
 	text-transform: capitalize;
 	font-size: small;
-	text-align: center;
 	font-weight: lighter;
 	margin-bottom: 30px;
 	font-style: italic;
@@ -30,17 +32,23 @@ p.current-date {
 	text-align: center;
 }
 
-.weather-today {
+a {
+	color: #faf189;
+}
+
+#weather-description {
+	text-transform: capitalize;
+}
+#weather-today {
 	margin: 0 auto;
 	display: block;
 }
 
 .card-body {
-	background-color: aliceblue;
+	background-color: #8e2735;
 }
-
 .card {
-	border-color: aliceblue;
+	border-color: #8e2735;
 }
 
 .card-title {
@@ -60,9 +68,9 @@ p.current-date {
 }
 
 .button {
-	background-color: #00587a;
-	color: #e7e7de;
-	border: 3px solid rgba(0, 88, 122, 0.5);
+	background-color: #611919;
+	color: #faf189;
+	border: 3px solid rgba(97, 25, 25, 0.5);
 	border-radius: 20px;
 }
 

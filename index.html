@@ -12,11 +12,11 @@
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="stylesheet" href="src/style.css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="stylesheet" href="src/style.css" />
 
 		<title>Weather App</title>
 	</head>
@@ -57,15 +57,16 @@
 					</div>
 					<div class="col-1 text-center">
 						<p class="todays-temp">
-							<span id="weather-today">-</span>
+							<span class="d-flex align-items-stretch" id="weather-today"
+								>-</span
+							>
 							<span class="weather-unit" id="weather-unit"> </span>
 						</p>
-						<p id="weather-description"></p>
 					</div>
 					<div class="col-2 text-center">
 						<p>Wind: <span id="wind-speed"></span></p>
-
 						<p>Humidity: <span id="humidity"></span></p>
+						<p id="weather-description"></p>
 					</div>
 				</div>
 			</div>
