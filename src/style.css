@@ -35,16 +35,12 @@ p.current-date {
 	display: block;
 }
 
-#weekly-weather {
-	padding: 20px;
-}
-
 .card-body {
 	background-color: aliceblue;
 }
 
-#weather-icon {
-	font-size: 40px;
+.card {
+	border-color: aliceblue;
 }
 
 .card-title {
@@ -85,4 +81,12 @@ p.current-date {
 .search-bar {
 	margin-right: 15px;
 	margin-bottom: 15px;
+}
+
+#weather-icon {
+	font-size: 40px;
+}
+
+#weekly-weather {
+	padding: 20px;
 }

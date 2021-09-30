@@ -38,23 +38,39 @@ function formatDate(date) {
 	today.innerHTML = ` ${currentDay}, ${currentMonth} ${currentDate} ${currentHour}:${currentMinutes} `;
 }
 
-function showForecast() {
+function formatDay(timestamp) {
+	let date = new Date(timestamp * 1000);
+	let day = date.getDay();
+
+	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+	return days[day];
+}
+
+function showForecast(response) {
+	let forecast = response.data.daily;
+
 	let forecastElement = document.querySelector("#weekly-weather");
-	let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
 
 	let forecastHTML = ``;
 
-	days.forEach(function (days) {
-		forecastHTML =
-			forecastHTML +
-			`<div class="card text-center border-info mb-3" style="max-width: 18rem">
+	forecast.forEach(function (forecastDay, index) {
+		if (index < 5) {
+			forecastHTML =
+				forecastHTML +
+				`<div class="card text-center mb-3" style="max-width: 18rem">
 					<div class="card-body">
-						<h5 class="card-title">${days}</h5>
-						<p class="card-text weather-emoji">⛅</p>
-						<p class="card-text">28°C</p>
-						<p class="card-text">19°C</p>
+						<h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
+						<p class="card-text weather-emoji">	<img src="http://openweathermap.org/img/wn/${
+							forecastDay.weather[0].icon
+						}@2x.png" alt="${
+					forecastDay.weather[0].main
+				}" id="weather-icon" /></p>
+						<p class="card-text">${Math.round(forecastDay.temp.max)}°C</p>
+						<p class="card-text">${Math.round(forecastDay.temp.min)}°C</p>
 					</div>
 					</div>`;
+		}
 	});
 
 	forecastElement.innerHTML = forecastHTML;
@@ -62,7 +78,7 @@ function showForecast() {
 
 function getForecast(coordinates) {
 	let apiKey = "3b500a0fcd4ea4cff00793465f95a169";
-	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 	axios.get(apiUrl).then(showForecast);
 }
 
@@ -117,6 +133,7 @@ function showCurrent(response) {
 	weatherIcon.setAttribute("alt", response.data.weather[0].description);
 	wind.innerHTML = Math.round(response.data.wind.speed);
 	humidity.innerHTML = `${response.data.main.humidity}%`;
+	getForecast(response.data.coord);
 }
 
 function showPosition(position) {
